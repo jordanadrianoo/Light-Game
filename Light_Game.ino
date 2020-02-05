@@ -127,17 +127,7 @@ void pattern1() // LEDs light upwards in seperations of 4
  
 void loop() 
 {
- pattern1();
- pattern3();
- pattern3();
- pattern2();
- pattern2();
- pattern3();
- pattern3();
- pattern5();
- pattern5();
- pattern5();
- pattern5();
- pattern3();
- pattern3();
+
+  
+  
 }
