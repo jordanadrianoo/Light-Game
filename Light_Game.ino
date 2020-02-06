@@ -1,3 +1,4 @@
+
 // Top 4 LEDS
 int tRed =13;
 int tYellow =12;
@@ -236,8 +237,17 @@ void pattern3()// End LEDs flash twords the middle (single version)
  
 void loop() 
 {
-  
-   pattern8(4);
+  mainStage();
+  transition();
+  pattern1();
+  transition();
+  pattern2();
+
+  pattern5();
+    transition();
+  pattern6();
+    transition();
+  pattern7();
 
   
 }
