@@ -53,6 +53,7 @@ void setup()
  {
   pattern3();
   pattern4();
+  pattern3();
  }
  
 void pattern1() // LEDs light upwards in seperations of 4
@@ -189,7 +190,9 @@ void pattern3()// End LEDs flash twords the middle (single version)
  
 void loop() 
 {
-
+  
+ mainStage();
+ transition();
  pattern1();
  transition();
  pattern2();
