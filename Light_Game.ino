@@ -17,11 +17,12 @@ int bBlue =3;
 int bGreen =2;
 
 //wait time for each pattern 
-int wait =150;
+int mainStageWait =100;
+int wait1 =150;
 int wait2 =80;
-int wait3 =20;
-int wait4 =200;
-int wait5 =100;
+int wait3 =150;
+int wait4 =150;
+
 
 void setup() 
 {
@@ -33,6 +34,18 @@ void setup()
   }
 }
 
+
+ void mainStage()//The main light stage, one light lights up at a time
+ {
+  for(int i=2;i<14;i++)
+  {
+    digitalWrite(i,HIGH);
+    delay(mainStageWait);
+    digitalWrite(i,LOW);
+  }
+  
+ }
+ 
 void pattern1() // LEDs light upwards in seperations of 4
 {
   for(int x=0;x<4;x++)
@@ -42,7 +55,7 @@ void pattern1() // LEDs light upwards in seperations of 4
     digitalWrite(i,HIGH);
     digitalWrite(i+4,HIGH);
     digitalWrite(i+8,HIGH);
-    delay(wait);
+    delay(wait1);
     digitalWrite(i,LOW);
     digitalWrite(i+4,LOW);
     digitalWrite(i+8,LOW);
@@ -50,84 +63,19 @@ void pattern1() // LEDs light upwards in seperations of 4
   }
  }
 
- void pattern2() // LEDs roam up then back down
- {
-   for(int i=2;i<18;i++)
-  {
-    digitalWrite(i,HIGH);
-    digitalWrite(i-1,HIGH);
-    digitalWrite(i-2,HIGH);
-    digitalWrite(i-3,HIGH);
-    delay(wait2);
-    digitalWrite(i,LOW);
-    digitalWrite(i-1,LOW);
-    digitalWrite(i-2,LOW);
-    digitalWrite(i-3,LOW); 
-  }
 
-  for(int i=17;i>0;i--)
-  {
-    digitalWrite(i,HIGH);
-    digitalWrite(i-1,HIGH);
-    digitalWrite(i-2,HIGH);
-    digitalWrite(i-3,HIGH);
-    delay(wait2);
-    digitalWrite(i,LOW);
-    digitalWrite(i-1,LOW);
-    digitalWrite(i-2,LOW);
-    digitalWrite(i-3,LOW); 
-    
-  }
-  delay(wait2);
- }
-
- void pattern3()// End LEDs flash twords the middle
- {
-  for(int i=2;i<8;i++)
-  {
-    digitalWrite(i,HIGH);
-    digitalWrite(13-(i-2),HIGH);
-    delay(wait3);
-  }
-  for(int i=2;i<8;i++)
-  {
-    digitalWrite(i,LOW);
-    digitalWrite(13-(i-2),LOW);
-    delay(wait3);
-  }
- }
-
- void pattern4()
- {
-  for(int x=2;x<14;x++)
-  {
-    digitalWrite(x,HIGH);
-    digitalWrite(x-1,LOW);
-   
-    for(int i=2;i<x;i++)
-    {
-                digitalWrite(i,HIGH);
-      delay(200);
-      digitalWrite(i,LOW);
-    }
-  }
-  digitalWrite(13,LOW);
- }
-
- void pattern5()
- {
-  for(int i=2;i<14;i++)
-  {
-    digitalWrite(i,HIGH);
-    delay(wait5);
-    digitalWrite(i,LOW);
-  }
-  
- }
+ 
+ 
  
 void loop() 
 {
-
   
+  pattern3();
+   pattern3();
+    pattern3();
+   pattern4();
+   pattern4();
+   pattern4();
+
   
 }
