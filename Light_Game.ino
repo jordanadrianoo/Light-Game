@@ -63,19 +63,48 @@ void pattern1() // LEDs light upwards in seperations of 4
   }
  }
 
+ void pattern2() // LEDs roam up then back down
+ {
+   for(int i=2;i<18;i++)
+  {
+    digitalWrite(i,HIGH);
+    digitalWrite(i-1,HIGH);
+    digitalWrite(i-2,HIGH);
+    digitalWrite(i-3,HIGH);
+    delay(wait2);
+    digitalWrite(i,LOW);
+    digitalWrite(i-1,LOW);
+    digitalWrite(i-2,LOW);
+    digitalWrite(i-3,LOW); 
+  }
+
+  for(int i=17;i>0;i--)
+  {
+    digitalWrite(i,HIGH);
+    digitalWrite(i-1,HIGH);
+    digitalWrite(i-2,HIGH);
+    digitalWrite(i-3,HIGH);
+    delay(wait2);
+    digitalWrite(i,LOW);
+    digitalWrite(i-1,LOW);
+    digitalWrite(i-2,LOW);
+    digitalWrite(i-3,LOW); 
+    
+  }
+  delay(wait2);
+ }
+
+
 
  
  
+
+
  
 void loop() 
 {
   
-  pattern3();
-   pattern3();
-    pattern3();
-   pattern4();
-   pattern4();
-   pattern4();
+
 
   
 }
