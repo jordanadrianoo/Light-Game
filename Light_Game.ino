@@ -49,7 +49,7 @@ void setup()
   }
  }
 
-  void transition()
+  void transition()//Transition stage between patterns
  {
   pattern3();
   pattern4();
