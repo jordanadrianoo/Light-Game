@@ -94,17 +94,26 @@ void pattern1() // LEDs light upwards in seperations of 4
   delay(wait2);
  }
 
-
-
- 
+ void pattern3()// End LEDs flash twords the middle (filled version)
+ {
+  for(int i=2;i<8;i++)
+  {
+    digitalWrite(i,HIGH);
+    digitalWrite(13-(i-2),HIGH);
+    delay(wait3);
+  }
+    for(int i=7;i>1;i--)
+  {
+    digitalWrite(i,LOW);
+    digitalWrite(13-(i-2),LOW);
+    delay(wait3);
+  }
+ }
  
 
 
  
 void loop() 
 {
-  
-
-
   
 }
