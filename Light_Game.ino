@@ -189,18 +189,47 @@ void pattern3()// End LEDs flash twords the middle (single version)
 
  void pattern8(int n)
  {
-  int lightorder[n];
+  int lightorder[n]; // sets array size
 
   for(int i=0;i<n;i++) // sets array at value zero
   {
     lightorder[i]=0;
-    Serial.println(lightorder[i]);
+    Serial.println(n);
     delay(100);
   }
 
+  for(int x=n-1;x>=0;x--)
+  {
   while(true)
   {
-    for(int i=0;i>0;i++)
+    for(int i=n-1;i>=0;i--)
+    {
+      if(lightorder[i]==1)
+      {
+        lightorder[i]=0;
+      }
+      else
+      {
+        lightorder[i]=1;
+        Serial.print("else");
+        break;
+      }
+    }
+    break;
+  }
+  for(int i=0;i<n;i++)
+  {
+    if(lightorder[i]==1)
+    {
+      digitalWrite(i+2,HIGH);
+    }
+    else
+    {
+      digitalWrite(i+2,LOW);
+    }
+    Serial.println(lightorder[i]);
+    delay(300);
+  }
   }
  }
 
@@ -208,8 +237,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
 void loop() 
 {
   
-   pattern8(1000);
-   delay(20000);
+   pattern8(9);
 
   
 }
