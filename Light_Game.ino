@@ -20,8 +20,8 @@ int bGreen =2;
 int mainStageWait =100;
 int wait1 =150;
 int wait2 =80;
-int wait3 =150;
-int wait4 =150;
+int wait3 =20;
+int wait4 =20;
 int wait5 =150;
 int wait6 =150;
 int wait7 =NULL;
@@ -47,7 +47,12 @@ void setup()
     delay(mainStageWait);
     digitalWrite(i,LOW);
   }
-  
+ }
+
+  void transition()
+ {
+  pattern3();
+  pattern4();
  }
  
 void pattern1() // LEDs light upwards in seperations of 4
@@ -120,13 +125,13 @@ void pattern3()// End LEDs flash twords the middle (single version)
   {
     digitalWrite(i,HIGH);
     digitalWrite(13-(i-2),HIGH);
-    delay(wait5);
+    delay(wait4);
   }
         for(int i=7;i>1;i--)
   {
     digitalWrite(i,LOW);
     digitalWrite(13-(i-2),LOW);
-    delay(wait5);
+    delay(wait4);
   }
  }
  
@@ -136,7 +141,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
   {
     digitalWrite(i,HIGH);
     digitalWrite(13-(i-2),HIGH);
-    delay(wait4);
+    delay(wait5);
   }
       for(int i=7;i>1;i--)
   {
@@ -184,10 +189,17 @@ void pattern3()// End LEDs flash twords the middle (single version)
  
 void loop() 
 {
-   pattern2();
-   pattern4();
-   //pattern5();
-   //pattern6();
+
+ pattern1();
+ transition();
+ pattern2();
+ transition();
+ pattern5();
+ transition();
+ pattern6();
+ transition();   
+ pattern7();
+ transition();  
 
   
 }
