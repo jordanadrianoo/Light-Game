@@ -128,10 +128,27 @@ void pattern1() // LEDs light upwards in seperations of 4
 
  
  
+ void pattern7() //pushes light upwards one at a time
+ {
+  for(int x=2;x<14;x++)
+  {
+    digitalWrite(x,HIGH);
+    digitalWrite(x-1,LOW);
+   
+    for(int i=2;i<x;i++)
+    {
+      digitalWrite(i,HIGH);
+      delay(200);
+      digitalWrite(i,LOW);
+    }
+  }
+  digitalWrite(13,LOW);
+ }
 
  
 void loop() 
 {
+
 
   
 }
