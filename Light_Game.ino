@@ -237,7 +237,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
 void loop() 
 {
   
-   pattern8(9);
+   pattern8(4);
 
   
 }
