@@ -24,7 +24,7 @@ int wait3 =150;
 int wait4 =150;
 int wait5 =150;
 int wait6 =150;
-
+int wait7 =NULL;
 
 
 
