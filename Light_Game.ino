@@ -187,6 +187,16 @@ void pattern3()// End LEDs flash twords the middle (single version)
   digitalWrite(13,LOW);
  }
 
+ void pattern8(int n)
+ {
+  int lightorder[n];
+
+  for(int i=0;i<n;i++)
+  {
+    lightorder[i]=i;
+  }
+ }
+
  
 void loop() 
 {
