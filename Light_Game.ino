@@ -22,6 +22,10 @@ int wait1 =150;
 int wait2 =80;
 int wait3 =150;
 int wait4 =150;
+int wait5 =150;
+int wait6 =150;
+
+
 
 
 void setup() 
@@ -94,7 +98,7 @@ void pattern1() // LEDs light upwards in seperations of 4
   delay(wait2);
  }
 
- void pattern3()// End LEDs flash twords the middle (filled version)
+void pattern3()// End LEDs flash twords the middle (single version)
  {
   for(int i=2;i<8;i++)
   {
@@ -102,27 +106,59 @@ void pattern1() // LEDs light upwards in seperations of 4
     digitalWrite(13-(i-2),HIGH);
     delay(wait3);
   }
-    for(int i=7;i>1;i--)
+    for(int i=2;i<8;i++)
   {
     digitalWrite(i,LOW);
     digitalWrite(13-(i-2),LOW);
     delay(wait3);
   }
  }
- 
- void pattern4()// Middle LED's flash twords the end (filled version)
+
+ void pattern4()// Middle LEDs flash twords ends (single version)
  {
-  for(int i=7;i>1;i--)
+      for(int i=7;i>1;i--)
+  {
+    digitalWrite(i,HIGH);
+    digitalWrite(13-(i-2),HIGH);
+    delay(wait5);
+  }
+        for(int i=7;i>1;i--)
+  {
+    digitalWrite(i,LOW);
+    digitalWrite(13-(i-2),LOW);
+    delay(wait5);
+  }
+ }
+ 
+ void pattern5()// End LEDs flash twords the middle then back to end (filled version)
+ {
+   for(int i=2;i<8;i++)
   {
     digitalWrite(i,HIGH);
     digitalWrite(13-(i-2),HIGH);
     delay(wait4);
   }
+      for(int i=7;i>1;i--)
+  {
+    digitalWrite(i,LOW);
+    digitalWrite(13-(i-2),LOW);
+    delay(wait5);
+  }
+ }
+ 
+ void pattern6()// Middle LED's flash twords the end then back to middle (filled version)
+ {
+  for(int i=7;i>1;i--)
+  {
+    digitalWrite(i,HIGH);
+    digitalWrite(13-(i-2),HIGH);
+    delay(wait6);
+  }
   for(int i=2;i<8;i++)
   {
     digitalWrite(i,LOW);
     digitalWrite(13-(i-2),LOW);
-    delay(wait4);
+    delay(wait6);
   }
  }
 
@@ -148,13 +184,10 @@ void pattern1() // LEDs light upwards in seperations of 4
  
 void loop() 
 {
-  
-  pattern3();
-   pattern3();
-    pattern3();
+   pattern2();
    pattern4();
-   pattern4();
-   pattern4();
+   //pattern5();
+   //pattern6();
 
   
 }
