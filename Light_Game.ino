@@ -191,9 +191,16 @@ void pattern3()// End LEDs flash twords the middle (single version)
  {
   int lightorder[n];
 
-  for(int i=0;i<n;i++)
+  for(int i=0;i<n;i++) // sets array at value zero
   {
-    lightorder[i]=i;
+    lightorder[i]=0;
+    Serial.println(lightorder[i]);
+    delay(100);
+  }
+
+  while(true)
+  {
+    for(int i=0;i>0;i++)
   }
  }
 
@@ -201,18 +208,8 @@ void pattern3()// End LEDs flash twords the middle (single version)
 void loop() 
 {
   
- mainStage();
- transition();
- pattern1();
- transition();
- pattern2();
- transition();
- pattern5();
- transition();
- pattern6();
- transition();   
- pattern7();
- transition();  
+   pattern8(1000);
+   delay(20000);
 
   
 }
