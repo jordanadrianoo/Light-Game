@@ -221,7 +221,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
     break;
   }
 
-   for(int i=0;i<n;i++) // sets array at value zero
+   for(int i=0;i<n;i++) 
   {
     Serial.print(lightorder[i]);
     delay(100);
@@ -230,21 +230,22 @@ void pattern3()// End LEDs flash twords the middle (single version)
   delay(100);
 
   
-  for(int i=0;i<n;i++)
+ for(int i=n-1; i>=0;i--)
+ {
+  if(lightorder[i]==1)
   {
-    if(lightorder[i+2]==1)
-    {
-      digitalWrite(i+2,HIGH);
-    }
-    else
-    {
-      digitalWrite(i+2,LOW);
-    }
-    
-    
+    digitalWrite(n-(i+2)-n,HIGH);
   }
+  else
+  {
+    digitalWrite((i+2)-n,LOW);
   }
  }
+    
+    
+  }
+  }
+ 
 
  
 void loop() 
