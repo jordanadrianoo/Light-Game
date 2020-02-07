@@ -240,8 +240,9 @@ void pattern3()// End LEDs flash twords the middle (single version)
   {
     digitalWrite((i+2),LOW);
   }
+  
  }
-    
+ delay(400);   
     
   }
   }
