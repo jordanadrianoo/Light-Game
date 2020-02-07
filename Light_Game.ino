@@ -200,8 +200,9 @@ void pattern3()// End LEDs flash twords the middle (single version)
   Serial.print(": Start state \n");
   delay(5000);
 
-  for(int x=n-1;x>=0;x--)
+  for(int x=pow(2,n);x>=0;x--)
   {
+    
   while(true)
   {
     for(int i=n-1;i>=0;i--)
@@ -249,7 +250,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
 void loop() 
 {
   
-   pattern8(5);
+   pattern8(3);
 
   
-}v
+}
