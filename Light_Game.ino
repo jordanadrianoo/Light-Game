@@ -17,7 +17,7 @@ int bBlue =3;
 int bGreen =2;
 
 //Buttons
-int buttonPin=1;
+int buttonPin=30;
 int button=0;
 
 //wait time for each pattern 
@@ -258,8 +258,16 @@ void pattern3()// End LEDs flash twords the middle (single version)
  
 void loop() 
 {
-  
-   pattern8(12);
-
-  
+  button=digitalRead(buttonPin);
+   Serial.println(digitalRead(buttonPin));
+   if(button==1)
+   {
+    digitalWrite(2,HIGH);
+    delay(50);
+   }
+   else
+   {
+    digitalWrite(2,LOW);
+   }
+     
 }
