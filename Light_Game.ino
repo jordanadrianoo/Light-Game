@@ -230,15 +230,15 @@ void pattern3()// End LEDs flash twords the middle (single version)
   delay(100);
 
   
- for(int i=n-1; i>=0;i--)
+ for(int i=0;i<n;i++)
  {
-  if(lightorder[i]==1)
+  if(lightorder[(n-1)-i]==1)
   {
-    digitalWrite(n-(i+2)-n,HIGH);
+    digitalWrite((i+2),HIGH);
   }
   else
   {
-    digitalWrite((i+2)-n,LOW);
+    digitalWrite((i+2),LOW);
   }
  }
     
@@ -251,7 +251,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
 void loop() 
 {
   
-   pattern8(3);
+   pattern8(12);
 
   
 }
