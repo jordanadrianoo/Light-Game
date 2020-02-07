@@ -198,7 +198,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
     delay(100);
   }
   Serial.print(": Start state \n");
-  delay(5000);
+  delay(2000);
 
   for(int x=pow(2,n)-1;x>=0;x--)
   {
@@ -224,10 +224,10 @@ void pattern3()// End LEDs flash twords the middle (single version)
    for(int i=0;i<n;i++) 
   {
     Serial.print(lightorder[i]);
-    delay(100);
+   
   }
   Serial.print(": Finsihed state \n");
-  delay(100);
+  
 
   
  for(int i=0;i<n;i++)
