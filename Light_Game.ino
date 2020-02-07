@@ -1,4 +1,3 @@
-
 // Top 4 LEDS
 int tRed =13;
 int tYellow =12;
@@ -188,7 +187,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
   digitalWrite(13,LOW);
  }
 
- void pattern8(int n)
+ void pattern8(int n) // The binary pattern
  {
   int lightorder[n]; // sets array size
 
@@ -199,7 +198,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
     delay(100);
   }
 
-  for(int x=n-1;x>=0;x--)
+ /* for(int x=n-1;x>=0;x--)
   {
   while(true)
   {
@@ -237,17 +236,8 @@ void pattern3()// End LEDs flash twords the middle (single version)
  
 void loop() 
 {
-  mainStage();
-  transition();
-  pattern1();
-  transition();
-  pattern2();
-
-  pattern5();
-    transition();
-  pattern6();
-    transition();
-  pattern7();
+  
+   pattern8(5);
 
   
 }
