@@ -16,6 +16,10 @@ int bYellow =4;
 int bBlue =3;
 int bGreen =2;
 
+//Buttons
+int buttonPin=1;
+int button=0;
+
 //wait time for each pattern 
 int mainStageWait =100;
 int wait1 =150;
@@ -24,7 +28,8 @@ int wait3 =20;
 int wait4 =20;
 int wait5 =150;
 int wait6 =150;
-int wait7 =NULL;
+int wait7 =200;
+int wait8 =400;
 
 
 
@@ -36,6 +41,8 @@ void setup()
   {
   pinMode(i,OUTPUT);
   }
+
+  pinMode(buttonPin,INPUT);
 }
 
 
@@ -180,7 +187,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
     for(int i=2;i<x;i++)
     {
       digitalWrite(i,HIGH);
-      delay(200);
+      delay(wait7);
       digitalWrite(i,LOW);
     }
   }
@@ -242,7 +249,7 @@ void pattern3()// End LEDs flash twords the middle (single version)
   }
   
  }
- delay(400);   
+ delay(wait8);   
     
   }
   }
