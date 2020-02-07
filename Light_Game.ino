@@ -55,7 +55,8 @@ void setup()
   void setupStage()// Sets up a random target LED for the user to try to land on
   {
     target=((random(12))+2);
-
+    Serial.print("The target is ");
+    Serial.println(target);
     for(int i=0; i<3;i++)
     {
     digitalWrite(target,HIGH);
@@ -104,17 +105,44 @@ void setup()
     }
     else
     {
-      Serial.println("sorry that is not right");
+      wrongPattern();
     }
   }
 
   void correctPattern()// DIsplays an LED pattern when the user is correct
 {
+  Serial.println("\n");
   for(int i=target;i<target+12;i++)
   {
-    digitalWrite((i%12),HIGH);
+    if(i<=13)
+    {
+    Serial.println((i));
+    digitalWrite((i),HIGH); 
+    }
+    else
+    {
+    Serial.println((i%14)+2);
+    digitalWrite((i%14)+2,HIGH); 
+    }
+    delay(20);
+  }
+  mainStageWait= mainStageWait-25;
+}
+
+void wrongPattern()
+{
+  digitalWrite(target,HIGH);
+
+  for(int i=0;i<3;i++)
+  {
+    digitalWrite(choosenLED,HIGH);
+    delay(400);
+    digitalWrite(choosenLED,LOW);
     delay(400);
   }
+
+  mainStageWait=200;
+  
 }
   
   void transition()//Transition stage between patterns
@@ -319,9 +347,10 @@ void pattern3()// End LEDs flash twords the middle (single version)
  
 void loop() 
 {
-  
+
   setupStage();
-  correctPattern();
+  mainStage();
+  transition();
  
 
   
