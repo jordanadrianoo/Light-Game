@@ -16,11 +16,17 @@ int bYellow =4;
 int bBlue =3;
 int bGreen =2;
 
+//Target LED
+int target=0;
+int choosenLED=0;
+
+
 //Buttons
 int buttonPin=30;
 int button=0;
 
 //wait time for each pattern 
+int setupStageWait=450;
 int mainStageWait =100;
 int wait1 =150;
 int wait2 =80;
@@ -46,9 +52,22 @@ void setup()
 }
 
 
+  void setupStage()
+  {
+    target=((random(12))+2);
+
+    for(int i=0; i<3;i++)
+    {
+    digitalWrite(target,HIGH);
+    delay(setupStageWait);
+    digitalWrite(target,LOW);
+    delay(setupStageWait);
+    }
+  }
+
  void mainStage()//The main light stage, one light lights up at a time
  {
-  int choosenLED=0;
+  choosenLED=0;
   while(true)
   {
   for(int i=2;i<14;i++)
@@ -71,19 +90,21 @@ void setup()
   
   Serial.print("you have coosen a color in spot ");
   Serial.println(choosenLED-1);
-  for(int i=0;i<4;i++)
-  {
-    digitalWrite(choosenLED,LOW);
-    delay(200);
-    digitalWrite(choosenLED,HIGH);
-    delay(200);
-    
-  }
-  delay(2000);
-  digitalWrite(choosenLED,LOW);
+  
   
  }
 
+  void check()
+  {
+    if(choosenLED==target)
+    {
+      Serial.println("YOU DID IT!!");
+    }
+    else
+    {
+      Serial.println("sorry that is not right");
+    }
+  }
   void transition()//Transition stage between patterns
  {
   pattern3();
@@ -287,7 +308,10 @@ void pattern3()// End LEDs flash twords the middle (single version)
 void loop() 
 {
 
-  mainStage();
-  transition();
+ // mainStage();
+  //transition();
+  setupStage();
+  Serial.println(target);
+  
      
 }
