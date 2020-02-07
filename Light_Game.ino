@@ -27,7 +27,7 @@ int button=0;
 
 //wait time for each pattern 
 int setupStageWait=450;
-int mainStageWait =100;
+int mainStageWait =200;
 int wait1 =150;
 int wait2 =80;
 int wait3 =20;
@@ -52,7 +52,7 @@ void setup()
 }
 
 
-  void setupStage()
+  void setupStage()// Sets up a random target LED for the user to try to land on
   {
     target=((random(12))+2);
 
@@ -73,8 +73,9 @@ void setup()
   for(int i=2;i<14;i++)
   {
     button=digitalRead(buttonPin);
-    choosenLED=i;
+    
     digitalWrite(i,HIGH);
+    choosenLED=i;
     if(button==1)
     {
       break;
@@ -90,21 +91,32 @@ void setup()
   
   Serial.print("you have coosen a color in spot ");
   Serial.println(choosenLED-1);
+  check();
   
   
  }
 
-  void check()
+  void check()// Checks to see if the user landed on the target
   {
     if(choosenLED==target)
     {
-      Serial.println("YOU DID IT!!");
+      correctPattern();
     }
     else
     {
       Serial.println("sorry that is not right");
     }
   }
+
+  void correctPattern()// DIsplays an LED pattern when the user is correct
+{
+  for(int i=target;i<target+12;i++)
+  {
+    digitalWrite((i%12),HIGH);
+    delay(400);
+  }
+}
+  
   void transition()//Transition stage between patterns
  {
   pattern3();
@@ -307,11 +319,11 @@ void pattern3()// End LEDs flash twords the middle (single version)
  
 void loop() 
 {
-
- // mainStage();
-  //transition();
+  
   setupStage();
-  Serial.println(target);
+  correctPattern();
+ 
+
   
      
 }
