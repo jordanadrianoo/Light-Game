@@ -348,11 +348,12 @@ void pattern3()// End LEDs flash twords the middle (single version)
 void loop() 
 {
 
+  pattern1();
+  while(true)
+  {
   setupStage();
   mainStage();
   transition();
- 
-
-  
+  }
      
 }
